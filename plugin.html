@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Python Web Plugin Test</title>
+        <script type="text/javascript" src="file://%s"></script>
+        <script type="text/javascript">
+            /*! JsonDB API v0.0.1 */
+            function __command__(a){try{eval("py."+a);var b=$.parseJSON(py.result);$("#Log").html(py.result);return b}catch(c){alert("CATCHED: "+c.message)}}function dbSet(a,b,c,d){return __command__("jdbSet('"+a+"', '"+b+"', '"+c+"', '"+d+"')")}function dbAdd(a,b,c,d,e){return __command__("jdbAdd('"+a+"', '"+b+"', '"+c+"', '"+d+"', '"+e+"')")}function dbSwitch(a,b,c,d,e){return __command__("jdbSwitch('"+a+"', '"+b+"', '"+c+"', '"+d+"', '"+e+"')")} function dbGet(a,b,c){return __command__("jdbGet('"+a+"', '"+b+"', '"+c+"')")}function dbRemove(a,b,c){return __command__("jdbRemove('"+a+"', '"+b+"', '"+c+"')")}function dbDelete(a,b){return __command__("jdbDelete('"+a+"', '"+b+"')")}function dbCreate(a){return __command__("jdbCreate('"+a+"')")}function dbData(){return py.data};
+            $(document).ready(function(){
+                /*!
+                 *Your code here, for example
+                 *Documentation:
+                 *http://redmine.qiqo.ru/projects/contentengine/wiki/Javascript_API
+
+                */
+//                dbGet('place','1','texts.ru.city')
+            })
+        </script>
+    </head>
+
+    <body>
+        <object id="flash-app" type="application/x-shockwave-flash" data="file://%s"></object>
+        <pre id="Log">Log messages displays here.</pre>
+
+    </body>
+</html>

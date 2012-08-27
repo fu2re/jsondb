@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Python Web Plugin Test</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+        <script type="text/javascript">
+
+/*! JsonDB API v0.0.1 */
+function __command__(command) {
+    try{eval("py." + command);var r = $.parseJSON(py.result);$("#Log").html(py.result);return r;}
+    catch(e){alert('CATCHED: '+e.message);}
+};
+function dbSet(table, id, target, value) {
+    return __command__("jdbSet('" + table + "', '" + id + "', '" + target + "', '" + value + "')")
+};
+function dbAdd(table, id, target, value, key) {
+    return __command__("jdbAdd('" + table + "', '" + id + "', '" + target + "', '" + value + "', '" + key + "')")
+};
+function dbSwitch(table, id, target, key, terminate) {
+    return __command__("jdbSwitch('" + table + "', '" + id + "', '" + target + "', '" + key + "', '" + terminate + "')")
+};
+function dbGet(table, id, target) {
+    return __command__("jdbGet('" + table + "', '" + id + "', '" + target + "')")
+};
+function dbRemove(table, id, target) {
+    return __command__("jdbRemove('" + table + "', '" + id + "', '" + target + "')")
+};
+function dbDelete(table, id) {
+    return __command__("jdbDelete('" + table + "', '" + id + "')")
+};
+function dbCreate(table) {
+    return __command__("jdbCreate('" + table + "')")
+};
+function dbData(table) {
+    return py.data
+};
+        </script>
+    </head>
+
+    <body>
+        <h1>Python Web Plugin Test</h1>
+        <object type="x-pyqt/widget" width="200" height="200"></object>
+        <pre id="Log">This is a Web plugin written in Python.</pre>
+        <script type="text/javascript">
+//            dbSet('place','1','coordinates.1', '22')
+//            dbRemove('place', '1','coordinates.1' )
+        </script>
+    </body>
+</html>
